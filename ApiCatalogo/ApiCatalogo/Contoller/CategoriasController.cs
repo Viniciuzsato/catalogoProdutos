@@ -1,6 +1,5 @@
 ﻿using ApiCatalogo.Context;
 using ApiCatalogo.Models;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 
@@ -36,7 +35,7 @@ namespace ApiCatalogo.Contoller
             var categoria = _context.Categorias.FirstOrDefault(p => p.CategoriaId == id);
             if (categoria == null)
             {
-                return NotFound("Categoia não encontrada...");
+                return NotFound("Categoia não encontrada!");
             }
             return Ok(categoria);
         }
@@ -75,7 +74,7 @@ namespace ApiCatalogo.Contoller
 
             if (categoria == null)
             {
-                return NotFound("Categoria não encontrada...");
+                return NotFound("Categoria não encontrada!");
             }
             _context.Categorias.Remove(categoria);
             _context.SaveChanges();

@@ -23,7 +23,7 @@ namespace ApiCatalogo.Contoller
             var produtos = _context.Produtos.ToList();
             if (produtos is null)
             {
-                return NotFound("Produtos não encontrados");
+                return NotFound("Produto não encontrado!");
             }
             return produtos;
         }
@@ -34,7 +34,7 @@ namespace ApiCatalogo.Contoller
             var produto = _context.Produtos.FirstOrDefault(p => p.ProdutoId == id);
             if (produto is null)
             {
-                return NotFound("Produto não encontrado");
+                return NotFound("Produto não encontrado!");
             }
             return produto;
         }
@@ -74,7 +74,7 @@ namespace ApiCatalogo.Contoller
 
             if(produto is null)
             {
-                return NotFound("produto não Localizado...");
+                return NotFound("produto não Localizado!");
             }
             _context.Produtos.Remove(produto);
             _context.SaveChanges();
